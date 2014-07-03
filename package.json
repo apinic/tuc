@@ -1,0 +1,22 @@
+{
+  "name": "tuc-managua",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5",
+    "mongoose": "^3.8.12"
+  },
+  "main": "web.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulomcnally/tuc-managua-web.git"
+  },
+  "keywords": [
+    "api",
+    "tuc"
+  ],
+  "engines": {
+    "node": "0.10.x"
+  }
+
+}
