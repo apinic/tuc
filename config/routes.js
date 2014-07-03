@@ -6,4 +6,6 @@ exports.init = function( app ){
 
     app.post( '/add', controllers.users.add );
 
+    app.post( '/route/add', controllers.route.add );
+
 }
