@@ -4,15 +4,11 @@ exports.setup = function(_mongoose,_db){
 
     var schema = _mongoose.Schema({
         name: {
-            type: String,
-            index: {
-                unique: true
+            type: String
             }
         },
         station: {
-            type: String,
-            index: {
-                unique: true
+            type: String
             }
         },
         created_at: {
