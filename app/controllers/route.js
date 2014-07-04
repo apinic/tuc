@@ -2,7 +2,7 @@ var Routes = function( models, helpers ){
 
     this.all = function( req, res ){
 
-      models.route.find({}, function(error, data){
+      models.route.find({ approved: true }, function(error, data){
         if( error ){
 
           res.json({ status: false, message: error });
