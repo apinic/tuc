@@ -8,4 +8,6 @@ exports.init = function( app ){
 
     app.post( '/route/add', controllers.route.add );
 
+    app.get( '/route/all', controllers.route.all );
+
 }

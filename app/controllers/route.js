@@ -1,9 +1,25 @@
-var Users = function( models, helpers ){
+var Routes = function( models, helpers ){
 
     this.all = function( req, res ){
 
-      modes.route.find({}, function(error, data){
-        res.json( data );
+      models.route.find({}, function(error, data){
+        if( error ){
+
+          res.json({ status: false, message: error });
+
+        }
+        else{
+          if( data ){
+
+            res.json({ status: true, data: data });
+
+          }
+          else{
+
+            res.json({ status: false, message: 'No existen registros.' });
+
+          }
+        }
       });
 
     }
@@ -54,4 +70,4 @@ var Users = function( models, helpers ){
 
 }
 
-module.exports = Users;
+module.exports = Routes;
