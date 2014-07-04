@@ -1,19 +1,9 @@
 var Users = function( models, helpers ){
 
-    this.auth = function( req, res ){
+    this.all = function( req, res ){
 
-      var email = req.body.email;
-      var password = req.body.password;
-
-      models.user.findOne({ email: email, password: password }, function(error,user){
-
-        if( user ){
-          res.json({ status: true, user: user });
-        }
-        else{
-          res.json({ status: false, message: 'Datos incorrectos. Intenta nuevamente.' });
-        }
-
+      modes.route.find({}, function(error, data){
+        res.json( data );
       });
 
     }
