@@ -26,45 +26,70 @@ var Routes = function( models, helpers ){
 
     this.add = function( req, res ){
 
+        var go = true;
         var name = req.body.name;
         var station = req.body.station;
         var user_name = req.body.user_name;
         var user_email = req.body.user_email;
 
-        models.route.findOne({ name: name, station: station }, function(error,route){
-            if( route ){
+        if( name == "" ){
+          go = false;
+          res.json({ status: false, message: 'Es necesario que escriba el nombre de la ruta.' });
+        }
 
-                res.json({ status: false, message: 'Ya existe un registro. Gracias' });
+        if( station == "" ){
+          go = false;
+          res.json({ status: false, message: 'Es necesario que escriba el nombre de la estación.' });
+        }
 
-            }
-            else{
+        if( user_name == "" ){
+          go = false;
+          res.json({ status: false, message: 'No se recibió el nombre del usuario.' });
+        }
 
-                var row = new models.route;
-                row.name = name;
-                row.station = station;
-                row.user = {
-                  name: user_name,
-                  email: user_email
-                };
+        if( user_email == "" ){
+          go = false;
+          res.json({ status: false, message: 'No se recibió el correo electrónico del usuario.' });
+        }
 
-                row.save(function(err){
+        if( go ){
 
-                    if( err ){
+          models.route.findOne({ name: name, station: station }, function(error,route){
+              if( route ){
 
-                        res.json( { status: false, message: err } );
+                  res.json({ status: false, message: 'Ya existe un registro. Gracias' });
 
-                    }
-                    else{
+              }
+              else{
 
-                        res.json( { status: true, message: 'Listo! Ahora solo falta que sea aprobado. Gracias.'  } );
+                  var row = new models.route;
+                  row.name = name;
+                  row.station = station;
+                  row.user = {
+                    name: user_name,
+                    email: user_email
+                  };
 
-                    }
+                  row.save(function(err){
 
-                });
+                      if( err ){
 
-            }
+                          res.json( { status: false, message: err } );
 
-        });
+                      }
+                      else{
+
+                          res.json( { status: true, message: 'Listo! Ahora solo falta que sea aprobado. Gracias.'  } );
+
+                      }
+
+                  });
+
+              }
+
+          });
+
+        }
 
     }
 
