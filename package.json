@@ -1,0 +1,11 @@
+{
+  "name": "tuc-api",
+  "version": "0.0.1",
+  "description": "TUC Balance",
+  "dependencies": {
+    "express": "^4.6.1",
+    "memjs": "^0.8.4",
+    "string": "^1.9.0",
+    "tuc": "0.0.4"
+  }
+}
