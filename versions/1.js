@@ -4,7 +4,7 @@ var Tuc = require('tuc');
 var S = require('string');
 var tuc = new Tuc();
 var mc = memjs.Client.create();
-var expire = 3600; // 1 heour
+var expire = 3600; // 1 hour
 
 module.exports.balance = function(req, res){
 
