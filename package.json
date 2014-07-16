@@ -1,6 +1,6 @@
 {
   "name": "tuc-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "TUC Balance",
   "dependencies": {
     "express": "^4.6.1",
