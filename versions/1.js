@@ -56,12 +56,12 @@ module.exports.balance = function(req, res){
 
     }
     else{
-      res.json({error:{message:"Número de tarjeta invalido. Require 8 dígitos numéricos."}});
+      res.json({error:{message:"Número de tarjeta inválido. Require 8 dígitos numéricos."}});
     }
 
   }
   else{
-    res.json({error:{message:"Número de tarjeta invalido. El formato correcto es 00000000."}});
+    res.json({error:{message:"Número de tarjeta inválido. El formato correcto es 00000000."}});
   }
 
 };
