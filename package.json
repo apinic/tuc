@@ -6,7 +6,7 @@
     "express": "^4.6.1",
     "memjs": "^0.8.4",
     "string": "^1.9.0",
-    "tuc": "0.0.5"
+    "tuc": "0.0.6"
   },
   "main": "api.js",
   "engines": {
