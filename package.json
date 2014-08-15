@@ -1,12 +1,20 @@
 {
   "name": "tuc-api",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "TUC Balance",
   "dependencies": {
     "express": "^4.6.1",
     "memjs": "^0.8.4",
     "string": "^1.9.0",
-    "tuc": "0.0.6"
+    "tuc": "0.0.10"
+  },
+  "bugs": {
+    "url": "https://github.com/paulomcnally/apinic/issues/new",
+    "email": "paulomcnally@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apinic/tuc.git"
   },
   "main": "api.js",
   "engines": {
