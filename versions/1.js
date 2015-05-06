@@ -2,9 +2,14 @@ var util = require('util');
 var memjs = require('memjs');
 var Tuc = require('tuc');
 var S = require('string');
+var logentries = require('le_node');
 var tuc = new Tuc();
 var mc = memjs.Client.create();
 var expire = 60; // 1 min
+
+var log = logentries.logger({
+  token: process.env.LOGENTRIES_TOKEN
+});
 
 module.exports.balance = function(req, res) {
 
@@ -26,6 +31,10 @@ module.exports.balance = function(req, res) {
               balance: balance,
               type: type
             };
+
+            // added log row
+            log.log("info", response);
+
             // save result ond memcached
             mc.set(stringKey, JSON.stringify(response),
               function(err, success) {
