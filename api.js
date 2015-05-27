@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
 var versions = require('./versions');
+var cors = require('cors');
+
+app.use(cors());
 
 app.set('json spaces', 2);
 
