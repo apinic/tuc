@@ -3,6 +3,7 @@
   "version": "0.0.5",
   "description": "TUC Balance",
   "dependencies": {
+    "cors": "^2.6.0",
     "express": "^4.6.1",
     "memjs": "^0.8.4",
     "string": "^1.9.0",
