@@ -9,7 +9,7 @@ const expire = 60; // 1 min
 module.exports.balance = (req, res) => {
 
   let account = req.params.account;
-  let stringKey = util.format('tuc_%d', account);
+  let stringKey = util.format('tuc_v2_%d', account);
 
   mc.get(stringKey, (err, value, key) => {
     if (value === null) {
@@ -18,20 +18,16 @@ module.exports.balance = (req, res) => {
         if (tuc.isError(balance)) {
           res.json(balance);
         } else {
-          // get account type
-          tuc.getType(account, (type) => {
-            let response = {
-              account: account,
-              balance: balance,
-              type: type,
-            };
+          let response = {
+            account: account,
+            balance: balance,
+          };
 
-            // save result ond memcached
-            mc.set(stringKey, JSON.stringify(response), (err, success) => {
-              response.source = 'request';
-              res.json(response);
-            }, expire);
-          });
+          // save result ond memcached
+          mc.set(stringKey, JSON.stringify(response), (err, success) => {
+            response.source = 'request';
+            res.json(response);
+          }, expire);
         }
       });
     } else {
