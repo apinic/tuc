@@ -7,7 +7,7 @@
     "express": "^4.6.1",
     "memjs": "^0.8.4",
     "string": "^1.9.0",
-    "tuc": "0.1.0"
+    "tuc": "0.1.1"
   },
   "bugs": {
     "url": "https://github.com/paulomcnally/apinic/issues/new",
