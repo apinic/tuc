@@ -18,20 +18,16 @@ module.exports.balance = (req, res) => {
         if (tuc.isError(balance)) {
           res.json(balance);
         } else {
-          // get account type
-          tuc.getType(account, (type) => {
-            let response = {
-              account: account,
-              balance: balance,
-              type: type,
-            };
+          let response = {
+            account: account,
+            balance: balance,
+          };
 
-            // save result ond memcached
-            mc.set(stringKey, JSON.stringify(response), (err, success) => {
-              response.source = 'request';
-              res.json(response);
-            }, expire);
-          });
+          // save result ond memcached
+          mc.set(stringKey, JSON.stringify(response), (err, success) => {
+            response.source = 'request';
+            res.json(response);
+          }, expire);
         }
       });
     } else {
